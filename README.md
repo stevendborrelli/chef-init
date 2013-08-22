@@ -15,7 +15,15 @@ Tested on:
 
 ####Usage:
 
-Installing:
+Quick install:
+
+	curl -s https://raw.github.com/stevendborrelli/chef-init/master/bootstrap.sh | sudo bash
+
+Cloning the repo: 
+
+	git clone https://github.com/stevendborrelli/chef-init.git
+
+Installing chef:
 	
 	./bootstrap.sh
 
