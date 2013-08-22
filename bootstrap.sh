@@ -10,7 +10,7 @@
 DOTCHEF=~/.chef
 
 #Git repo for your cookbooks
-REPODIR=~/test-repo
+REPODIR=~/chef-repo
 
 #Location of ruby install
 RUBY_HOME=/opt/chef/embedded 
