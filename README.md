@@ -1,16 +1,25 @@
 chef-init
 =========
 
-Set up a basic chef client, useful for getting started with chef-solo.  
 
-Will also: 
+_(c) Steven Borrelli 2013,  MIT license._
 
-* Install berkshelf gem into chef's embedded ruby. 
-* copies the chef-repo dir and points .chef/knife.rb to the chef-repo/cooksbooks directory
+Set up a basic chef client and the berkshelf gem. This is a quick way to started with chef-solo.
+
+The scripts are based on the Introduction at http://gettingstartedwithchef.com.
+
+
+The script will:
+
+* Install the chef package from opscode.
+* Install the `berkshelf` gem into chef's embedded ruby located at `/opt/chef/embedded/` 
+* copies the `http://github.com/opscode/chef-repr` dir and points `.chef/knife.rb` to the `~/chef-repo/cooksbooks` directory
+* Comes with an uninstall scirpt to remove chef, installed ruby gems and additional packages used to build berkshelf. 
 
 Tested on:
 
 	ubuntu1204
+	
 	rhel6.3
 
 ####Usage:
@@ -23,12 +32,14 @@ Cloning the repo:
 
 	git clone https://github.com/stevendborrelli/chef-init.git
 
-Installing chef:
+Installing chef and supporting files:
 	
 	./bootstrap.sh
 
 
-Uninstalling:
+Uninstalling chef and berkshelf (the `.chef` and `chef-repo` directories will be untouched):
 	
 	./uninstall_chef.sh 
 
+
+Note that uninstall will also remove gcc and build-essential, which may break your build environment. 
