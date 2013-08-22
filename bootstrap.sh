@@ -84,12 +84,12 @@ function install_packages {
 
 #Installs ubuntu build tools 
 function install_ubuntu_build {
-	install_packages build-essential libxslt1-dev libxml2-dev
+	install_packages build-essential git-core libxslt1-dev libxml2-dev
 }
 
 #Installs rhel build tools 
 function install_redhat_build {
-	install_packages gcc libxml2 libxml2-devel libxslt libxslt-devel  
+	install_packages gcc git libxml2 libxml2-devel libxslt libxslt-devel  
 }
 
 
