@@ -77,14 +77,19 @@ function dotChef_cookbook {
 	fi 
 }
 
+#installs OS packages
+function install_packages {
+	${SUDO} ${PKG_INSTALLER} ${PKG_INSTALL_ARGS} $@ 
+}
+
 #Installs ubuntu build tools 
 function install_ubuntu_build {
-	${SUDO} ${PKG_INSTALLER} ${PKG_INSTALL_ARGS} build-essential libxslt1-dev libxml2-dev
+	install_packages build-essential libxslt1-dev libxml2-dev
 }
 
 #Installs rhel build tools 
 function install_redhat_build {
-	${SUDO} ${PKG_INSTALLER} ${PKG_INSTALL_ARGS} gcc libxml2 libxml2-devel libxslt libxslt-devel  
+	install_packages gcc libxml2 libxml2-devel libxslt libxslt-devel  
 }
 
 
@@ -94,7 +99,6 @@ function chef_install_gem {
 	gem_opts="--no-ri --no-rdoc"
 	${SUDO} ${RUBY_HOME}/bin/gem install ${_gem}  ${gem_opts} 
 }
-
 
 check_root
 
