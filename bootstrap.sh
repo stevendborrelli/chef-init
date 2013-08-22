@@ -20,7 +20,7 @@ function set_redhat {
 	PKG_INSTALLER="yum"
 	PKG_UNINSTALLER="yum"
  	PKG_INSTALL_ARGS="-y install"
-	PKG_UNINSTALL_ARGS="-y uninstall"	
+	PKG_UNINSTALL_ARGS="-y remove"	
 }
 	
 function set_ubuntu {
