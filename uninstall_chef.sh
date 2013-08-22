@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 DOTCHEF=~/.chef
 
@@ -42,17 +42,21 @@ function check_root {
 }
 
 function clean_gems {
-	${RUBY_HOME}/bin/gem list --no-version | ${SUDO} xargs ${RUBY_HOME}/bin/gem uninstall -aIx	
+	[ -f ${RUBY_HOME}/bin/gem ] && ${RUBY_HOME}/bin/gem list --no-version | ${SUDO} xargs ${RUBY_HOME}/bin/gem uninstall -aIx	
 }
 
 #clean up everything
 function clean_ubuntu {
-	${SUDO} ${PKG_UNINSTALLER} ${PKG_UNINSTALL_ARGS} build-essential libxslt1-dev libxml2-dev
+	if [ -n "$REMOVE_DEPS" ]; then 
+		${SUDO} ${PKG_UNINSTALLER} ${PKG_UNINSTALL_ARGS} build-essential git-core libxslt1-dev libxml2-dev
+	fi 
 	${SUDO} ${PKG_UNINSTALLER} ${PKG_UNINSTALL_ARGS} chef 
 }
 
 function clean_redhat {
-	${SUDO} ${PKG_UNINSTALLER} ${PKG_UNINSTALL_ARGS} gcc libxml2-devel libxslt-devel  libgpg-error-devel libgcrypt-devel
+	if [ -n "$REMOVE_DEPS" ]; then 
+		${SUDO} ${PKG_UNINSTALLER} ${PKG_UNINSTALL_ARGS} gcc git libxml2-devel libxslt-devel  libgpg-error-devel libgcrypt-devel
+	fi 
 	${SUDO} ${PKG_UNINSTALLER} ${PKG_UNINSTALL_ARGS} chef 
 }
 
