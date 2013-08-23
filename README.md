@@ -4,7 +4,9 @@ chef-init
 
 _(c) Steven Borrelli 2013,  MIT license._
 
-Set up a basic chef client and the berkshelf gem. This is a quick way to started with chef-solo.
+Set up a basic chef client and the berkshelf gem. This is a quick way to started with chef-solo. 
+
+A Vagrantfile is provided to bring the environment up in [Vagrant](http://vagrantup.com)
 
 The scripts are based on the Introduction at http://gettingstartedwithchef.com.
 
@@ -27,6 +29,10 @@ Tested on:
 Quick install:
 
 	curl -s https://raw.github.com/stevendborrelli/chef-init/master/bootstrap.sh | sudo bash
+
+Using Vagrant:
+
+	vagrant up
 
 Cloning the repo: 
 
